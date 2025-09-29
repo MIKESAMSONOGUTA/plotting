@@ -28,6 +28,16 @@ def process_cocoa_data():
     return ghana_table, ivory_table
 
 
+  def plot_scatter():
+        import matplotlib.pyplot as plt
+        import random
+        x = [random.random() for _ in range(30)]
+        y = [random.random() for _ in range(30)]
+        fig, ax = plt.subplots()
+        ax.scatter(x, y)
+        plt.show()
+
+
 def plot_cocoa_production(ghana, ivory):
     plt.figure(figsize=(10, 6))
     plt.plot(ghana['Year'], ghana['Production'], marker='o', label='Ghana')
@@ -40,6 +50,21 @@ def plot_cocoa_production(ghana, ivory):
     plt.grid(True, linestyle='--', alpha=0.6)
     plt.tight_layout()
     plt.show()
+
+def plot_titles_and_text():
+	import matplotlib.pyplot as plt
+	import numpy as np
+	x = np.linspace(0, 2 * np.pi, 200)
+	y = np.sin(x)
+	z = np.cos(x)
+	fig, ax = plt.subplots()
+	ax.plot(x, y, label="sin(x)")
+	ax.plot(x, z, label="cos(x)")
+	ax.legend()
+	ax.set_title('Ghana and Cote dIvore Cocoa Exports')
+	ax.set_xlabel('X')
+	ax.set_ylabel('Y')
+	plt.show()
 
 def main():
     file_path = "/mnt/data/FAOSTAT_data_en_9-29-2025 (1).csv"
@@ -54,14 +79,6 @@ def main():
 
     ax.scatter(x, y)= plot_scatter()
 
-    def plot_scatter():
-        import matplotlib.pyplot as plt
-        import random
-        x = [random.random() for _ in range(30)]
-        y = [random.random() for _ in range(30)]
-        fig, ax = plt.subplots()
-        ax.scatter(x, y)
-        plt.show()
 
     if __name__ == "__main__":
       main()
